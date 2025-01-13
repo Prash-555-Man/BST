@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BinarySearchPro - Learn DSA Interactively</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="theme-switch">
+        <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
+        <label for="theme-toggle" class="toggle-label" data-tooltip="Toggle dark/light mode">
+            <i class="fas fa-sun" aria-hidden="true"></i>
+            <i class="fas fa-moon" aria-hidden="true"></i>
+        </label>
+    </div>
+
+    <nav class="sidebar" aria-label="Main navigation">
+        <div class="logo">
+            <h1>BinarySearchPro</h1>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+        <ul class="nav-links">
+            <li class="active"><a href="#visualizer" aria-current="page"><i class="fas fa-project-diagram" aria-hidden="true"></i> Tree Visualizer</a></li>
+            <li><a href="#playground"><i class="fas fa-code" aria-hidden="true"></i> Code Playground</a></li>
+            <li><a href="#theory"><i class="fas fa-book" aria-hidden="true"></i> Theory Hub</a></li>
+            <li><a href="#challenges"><i class="fas fa-trophy" aria-hidden="true"></i> Challenges</a></li>
+            <li><a href="#interview"><i class="fas fa-user-tie" aria-hidden="true"></i> Interview Prep</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <section id="visualizer" class="active-section" aria-label="Binary Search Tree Visualizer">
+            <div class="control-panel" role="group" aria-label="Tree controls">
+                <div class="input-group">
+                    <input type="number" id="node-value" placeholder="Enter node value" aria-label="Node value">
+                    <button id="insert-btn" class="btn primary" data-tooltip="Add a new node to the tree">
+                        <i class="fas fa-plus" aria-hidden="true"></i> Insert Node
+                    </button>
+                    <button id="delete-btn" class="btn danger" data-tooltip="Remove a node from the tree">
+                        <i class="fas fa-minus" aria-hidden="true"></i> Delete Node
+                    </button>
+                    <button id="search-btn" class="btn info" data-tooltip="Find a node in the tree">
+                        <i class="fas fa-search" aria-hidden="true"></i> Search
+                    </button>
+                </div>
+                <div class="traversal-controls" role="group" aria-label="Tree traversal controls">
+                    <button id="inorder-btn" class="btn secondary" data-tooltip="Visit nodes in-order (left, root, right)">
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i> Inorder
+                    </button>
+                    <button id="preorder-btn" class="btn secondary" data-tooltip="Visit nodes pre-order (root, left, right)">
+                        <i class="fas fa-step-forward" aria-hidden="true"></i> Preorder
+                    </button>
+                    <button id="postorder-btn" class="btn secondary" data-tooltip="Visit nodes post-order (left, right, root)">
+                        <i class="fas fa-fast-forward" aria-hidden="true"></i> Postorder
+                    </button>
+                </div>
+            </div>
+            <div class="visualization-area">
+                <canvas id="tree-canvas" aria-label="Binary Search Tree visualization" role="img"></canvas>
+            </div>
+            <div class="output-panel">
+                <h3>Operation Log</h3>
+                <div id="operation-log" role="log" aria-live="polite" aria-atomic="true"></div>
+            </div>
+        </section>
+
+        <section id="playground" class="section" aria-label="Code Playground">
+            <div class="section-header">
+                <h2>Code Playground</h2>
+                <p>Practice implementing Binary Search Tree operations</p>
+            </div>
+            <div class="code-editor-container">
+                <div class="language-selector">
+                    <select id="language-select" aria-label="Select programming language">
+                        <option value="python">Python</option>
+                        <option value="javascript">JavaScript</option>
+                        <option value="java">Java</option>
+                        <option value="cpp">C++</option>
+                    </select>
+                </div>
+                <div class="editor-wrapper">
+                    <div id="code-editor" aria-label="Code editor"></div>
+                    <button id="run-code" class="btn primary">
+                        <i class="fas fa-play" aria-hidden="true"></i> Run Code
+                    </button>
+                </div>
+                <div class="output-console" aria-label="Code output">
+                    <div class="console-header">
+                        <h3>Output</h3>
+                        <button id="clear-console" class="btn secondary">
+                            <i class="fas fa-trash" aria-hidden="true"></i> Clear
+                        </button>
+                    </div>
+                    <div id="console-output"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="theory" class="section" aria-label="Theory Hub">
+            <div class="section-header">
+                <h2>Theory Hub</h2>
+                <p>Learn about Binary Search Trees</p>
+            </div>
+            <div class="theory-content">
+                <div class="topic-list">
+                    <article class="topic-card">
+                        <h3>Introduction to BST</h3>
+                        <p>Learn the basic concepts and properties of Binary Search Trees.</p>
+                        <a href="#theory/intro" class="btn secondary">Learn More</a>
+                    </article>
+                    <article class="topic-card">
+                        <h3>Operations</h3>
+                        <p>Master the fundamental operations: insertion, deletion, and traversal.</p>
+                        <a href="#theory/operations" class="btn secondary">Learn More</a>
+                    </article>
+                    <article class="topic-card">
+                        <h3>Time Complexity</h3>
+                        <p>Understand the time and space complexity of BST operations.</p>
+                        <a href="#theory/complexity" class="btn secondary">Learn More</a>
+                    </article>
+                    <article class="topic-card">
+                        <h3>Advanced Concepts</h3>
+                        <p>Explore balancing, self-balancing trees, and more.</p>
+                        <a href="#theory/advanced" class="btn secondary">Learn More</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="challenges" class="section" aria-label="Coding Challenges">
+            <div class="section-header">
+                <h2>Challenges</h2>
+                <p>Test your BST knowledge with coding challenges</p>
+            </div>
+            <div class="challenges-grid">
+                <article class="challenge-card" data-difficulty="easy">
+                    <div class="challenge-header">
+                        <h3>Height of BST</h3>
+                        <span class="difficulty">Easy</span>
+                    </div>
+                    <p>Calculate the height of a given Binary Search Tree.</p>
+                    <button class="btn primary">Start Challenge</button>
+                </article>
+                <article class="challenge-card" data-difficulty="medium">
+                    <div class="challenge-header">
+                        <h3>Balanced BST</h3>
+                        <span class="difficulty">Medium</span>
+                    </div>
+                    <p>Convert a sorted array to a balanced BST.</p>
+                    <button class="btn primary">Start Challenge</button>
+                </article>
+                <article class="challenge-card" data-difficulty="hard">
+                    <div class="challenge-header">
+                        <h3>AVL Tree</h3>
+                        <span class="difficulty">Hard</span>
+                    </div>
+                    <p>Implement an AVL tree with auto-balancing.</p>
+                    <button class="btn primary">Start Challenge</button>
+                </article>
+            </div>
+        </section>
+
+        <section id="interview" class="section" aria-label="Interview Preparation">
+            <div class="section-header">
+                <h2>Interview Prep</h2>
+                <p>Prepare for technical interviews with BST questions</p>
+            </div>
+            <div class="interview-content">
+                <div class="practice-area">
+                    <h3>Common Interview Questions</h3>
+                    <div class="question-list">
+                        <div class="question-item">
+                            <h4>Validate BST</h4>
+                            <p>Check if a binary tree is a valid BST</p>
+                            <div class="question-actions">
+                                <button class="btn secondary">View Solution</button>
+                                <button class="btn primary">Practice</button>
+                            </div>
+                        </div>
+                        <div class="question-item">
+                            <h4>Lowest Common Ancestor</h4>
+                            <p>Find the lowest common ancestor of two nodes in a BST</p>
+                            <div class="question-actions">
+                                <button class="btn secondary">View Solution</button>
+                                <button class="btn primary">Practice</button>
+                            </div>
+                        </div>
+                        <div class="question-item">
+                            <h4>Kth Smallest Element</h4>
+                            <p>Find the kth smallest element in a BST</p>
+                            <div class="question-actions">
+                                <button class="btn secondary">View Solution</button>
+                                <button class="btn primary">Practice</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tips-section">
+                    <h3>Interview Tips</h3>
+                    <ul class="tips-list">
+                        <li>Always verify the input constraints</li>
+                        <li>Discuss time and space complexity</li>
+                        <li>Consider edge cases</li>
+                        <li>Think about balanced vs unbalanced trees</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
