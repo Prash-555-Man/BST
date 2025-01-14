@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tree Visualizer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <header class="header">
+                <div class="logo">
+                    <i class="fas fa-project-diagram"></i>
+                    <span>Tree Visualizer</span>
+                </div>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-sun light-icon"></i>
+                    <i class="fas fa-moon dark-icon"></i>
+                </button>
+            </header>
+
+            <div class="card">
+                <h3><i class="fas fa-code-branch"></i>Data Structure</h3>
+                <div class="button-group">
+                    <button id="bstBtn" class="primary active">
+                        <i class="fas fa-tree"></i>BST
+                    </button>
+                    <button id="minHeapBtn" class="primary">
+                        <i class="fas fa-sort-amount-down"></i>Min Heap
+                    </button>
+                    <button id="maxHeapBtn" class="primary">
+                        <i class="fas fa-sort-amount-up"></i>Max Heap
+                    </button>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3><i class="fas fa-tools"></i>Operations</h3>
+                <div class="input-group">
+                    <input type="number" id="nodeValue" placeholder="Enter a number">
+                    <div class="button-group">
+                        <button id="insertBtn" class="primary">
+                            <i class="fas fa-plus"></i>Insert
+                        </button>
+                        <button id="deleteBtn" class="danger">
+                            <i class="fas fa-minus"></i>Delete
+                        </button>
+                        <button id="searchBtn" class="info">
+                            <i class="fas fa-search"></i>Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3><i class="fas fa-magic"></i>Quick Actions</h3>
+                <div class="input-group">
+                    <input type="number" id="nodeCount" placeholder="Number of nodes (max 20)" value="5">
+                    <div class="button-group">
+                        <button id="randomInsertBtn" class="primary">
+                            <i class="fas fa-random"></i>Random
+                        </button>
+                        <button id="clearTreeBtn" class="danger">
+                            <i class="fas fa-trash"></i>Clear
+                        </button>
+                        <button id="balanceTreeBtn" class="info">
+                            <i class="fas fa-balance-scale"></i>Balance
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3><i class="fas fa-route"></i>Traversals</h3>
+                <div class="button-group">
+                    <button id="inorderBtn" class="secondary">
+                        <i class="fas fa-arrow-right"></i>Inorder
+                    </button>
+                    <button id="preorderBtn" class="secondary">
+                        <i class="fas fa-arrow-down"></i>Preorder
+                    </button>
+                    <button id="postorderBtn" class="secondary">
+                        <i class="fas fa-arrow-up"></i>Postorder
+                    </button>
+                    <button id="levelOrderBtn" class="secondary">
+                        <i class="fas fa-layer-group"></i>Level Order
+                    </button>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3><i class="fas fa-info-circle"></i>Tree Analysis</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="label">Structure Type</span>
+                        <span class="value" id="structureType">BST</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Height</span>
+                        <span class="value" id="treeHeight">0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Node Count</span>
+                        <span class="value" id="nodeCount">0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Valid Structure</span>
+                        <span class="value" id="isValid">Yes</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Min Value</span>
+                        <span class="value" id="minValue">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Max Value</span>
+                        <span class="value" id="maxValue">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card operation-log">
+                <h3><i class="fas fa-history"></i>Operation Log</h3>
+                <div class="log-content" id="logContainer"></div>
+            </div>
+        </aside>
+
+        <main class="visualization">
+            <div id="treeContainer"></div>
+            <div class="zoom-controls">
+                <button class="zoom-btn" id="zoomInBtn">
+                    <i class="fas fa-plus"></i>
+                </button>
+                <button class="zoom-btn" id="zoomOutBtn">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <button class="zoom-btn" id="resetZoomBtn">
+                    <i class="fas fa-compress-arrows-alt"></i>
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <script src="theme.js"></script>
+</body>
+
+</html>
